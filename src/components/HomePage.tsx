@@ -246,6 +246,17 @@ function Experience({ dict }: { dict: Dictionary }) {
               ))}
             </ul>
           </div>
+          <div>
+            <h3 className="font-semibold">{experience.languagesHeading}</h3>
+            <ul className="mt-3 space-y-3 text-sm">
+              {experience.languages.map((language) => (
+                <li key={language.name}>
+                  <p className="font-medium">{language.name}</p>
+                  <p className="text-muted">{language.level}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

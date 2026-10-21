@@ -166,8 +166,14 @@ export const en: Dictionary = {
     ],
     certificationsHeading: "Certifications",
     certifications: [
+      { name: "GitHub Copilot (Microsoft)", date: "May 2026" },
       { name: "AWS Certified AI Practitioner", date: "Jul 2025" },
       { name: "AWS Certified Developer – Associate", date: "Apr 2024" },
+    ],
+    languagesHeading: "Languages",
+    languages: [
+      { name: "English", level: "C2 Proficient (EF SET 71/100)" },
+      { name: "Portuguese", level: "Native" },
     ],
   },
   contact: {

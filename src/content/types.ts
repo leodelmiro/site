@@ -75,6 +75,8 @@ export type Dictionary = {
     education: { title: string; school: string; period: string }[];
     certificationsHeading: string;
     certifications: { name: string; date: string }[];
+    languagesHeading: string;
+    languages: { name: string; level: string }[];
   };
   contact: {
     heading: string;
