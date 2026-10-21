@@ -35,7 +35,6 @@ export type Dictionary = {
     projects: string;
     experience: string;
     contact: string;
-    switchHref: string;
     switchLabel: string;
     switchLang: string;
   };

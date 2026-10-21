@@ -17,7 +17,6 @@ type RootDocumentProps = {
   children: ReactNode;
 };
 
-// Each locale has its own root layout so <html lang> is correct in the static HTML.
 export function RootDocument({ lang, children }: RootDocumentProps) {
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

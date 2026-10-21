@@ -15,7 +15,6 @@ export const pt: Dictionary = {
     projects: "Projetos",
     experience: "Experiência",
     contact: "Contato",
-    switchHref: "/",
     switchLabel: "EN",
     switchLang: "Read in English",
   },

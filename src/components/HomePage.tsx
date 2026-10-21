@@ -11,7 +11,7 @@ function SectionHeading({ id, children }: { id: string; children: string }) {
   );
 }
 
-function Header({ dict }: { dict: Dictionary }) {
+function Header({ dict, onToggleLocale }: { dict: Dictionary; onToggleLocale: () => void }) {
   const links = [
     { href: "#work", label: dict.nav.work },
     { href: "#projects", label: dict.nav.projects },
@@ -25,28 +25,33 @@ function Header({ dict }: { dict: Dictionary }) {
         <a href="#top" className="font-semibold tracking-tight">
           Leonardo Delmiro
         </a>
-        <nav aria-label={dict.nav.label} className="flex items-center gap-1 text-sm">
-          <ul className="hidden items-center gap-1 sm:flex">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="rounded px-2 py-2 text-muted transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a
-            href={dict.nav.switchHref}
-            hrefLang={dict.locale === "en" ? "pt-BR" : "en"}
-            aria-label={dict.nav.switchLang}
-            className="ml-2 rounded border border-border px-2 py-1.5 font-mono text-xs transition-colors hover:border-accent hover:text-accent"
+        <div className="flex items-center gap-1 text-sm">
+          <nav aria-label={dict.nav.label} className="hidden sm:block">
+            <ul className="flex items-center gap-1">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="rounded px-2 py-2 text-muted transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <button
+            type="button"
+            onClick={onToggleLocale}
+            className="ml-2 min-h-8 min-w-10 rounded border border-border px-2 font-mono text-xs transition-colors hover:border-accent hover:text-accent"
           >
             {dict.nav.switchLabel}
-          </a>
-        </nav>
+            {/* Keeps the visible label in the accessible name (WCAG 2.5.3). */}
+            <span className="sr-only" lang={dict.locale === "en" ? "pt-BR" : "en"}>
+              {` · ${dict.nav.switchLang}`}
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   );
@@ -274,7 +279,7 @@ function Contact({ dict }: { dict: Dictionary }) {
   );
 }
 
-export function HomePage({ dict }: { dict: Dictionary }) {
+export function HomePage({ dict, onToggleLocale }: { dict: Dictionary; onToggleLocale: () => void }) {
   return (
     <>
       <a
@@ -283,7 +288,7 @@ export function HomePage({ dict }: { dict: Dictionary }) {
       >
         {dict.nav.skipToContent}
       </a>
-      <Header dict={dict} />
+      <Header dict={dict} onToggleLocale={onToggleLocale} />
       <main id="content" className="mx-auto max-w-4xl px-4 sm:px-6">
         <div id="top" />
         <Hero dict={dict} />
