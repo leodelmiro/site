@@ -168,6 +168,7 @@ export const pt: Dictionary = {
       { name: "GitHub Copilot (Microsoft)", date: "mai 2026" },
       { name: "AWS Certified AI Practitioner", date: "jul 2025" },
       { name: "AWS Certified Developer – Associate", date: "abr 2024" },
+      { name: "AWS Certified Cloud Practitioner", date: "mai 2023" },
     ],
     languagesHeading: "Idiomas",
     languages: [
