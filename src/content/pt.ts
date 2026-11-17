@@ -185,7 +185,7 @@ export const pt: Dictionary = {
   blog: {
     title: "Blog · Leonardo Delmiro",
     heading: "Blog",
-    intro: "Anotações sobre engenharia backend, confiabilidade e o que eu estiver aprendendo.",
+    intro: "Anotações sobre o que estou aprendendo e sobre engenharia de software.",
     empty: "Nenhum post ainda.",
     backLabel: "Todos os posts",
     onlyInOtherLanguage: "Este post só está disponível em inglês.",
