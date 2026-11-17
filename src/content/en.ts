@@ -15,6 +15,7 @@ export const en: Dictionary = {
     projects: "Projects",
     experience: "Experience",
     contact: "Contact",
+    blog: "Blog",
     switchLabel: "PT",
     switchLang: "Ler em português",
   },
@@ -181,6 +182,14 @@ export const en: Dictionary = {
     heading: "Let's talk",
     text: "Open to senior backend roles, remote. The fastest way to reach me is email or LinkedIn.",
     email: "leodelmiroms@gmail.com",
+  },
+  blog: {
+    title: "Blog · Leonardo Delmiro",
+    heading: "Blog",
+    intro: "Notes on backend engineering, reliability and whatever I am learning.",
+    empty: "No posts yet.",
+    backLabel: "All posts",
+    onlyInOtherLanguage: "This post is only available in Portuguese.",
   },
   footer: "Built with Next.js.",
 };

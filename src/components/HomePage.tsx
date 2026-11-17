@@ -1,3 +1,4 @@
+import { SiteShell } from "@/components/SiteShell";
 import type { Dictionary } from "@/content/types";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/leodelmiro/";
@@ -8,52 +9,6 @@ function SectionHeading({ id, children }: { id: string; children: string }) {
     <h2 id={id} className="font-mono text-sm uppercase tracking-widest text-accent">
       {children}
     </h2>
-  );
-}
-
-function Header({ dict, onToggleLocale }: { dict: Dictionary; onToggleLocale: () => void }) {
-  const links = [
-    { href: "#work", label: dict.nav.work },
-    { href: "#projects", label: dict.nav.projects },
-    { href: "#experience", label: dict.nav.experience },
-    { href: "#contact", label: dict.nav.contact },
-  ];
-
-  return (
-    <header className="sticky top-0 z-10 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-4xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" className="font-semibold tracking-tight">
-          Leonardo Delmiro
-        </a>
-        <div className="flex items-center gap-1 text-sm">
-          <nav aria-label={dict.nav.label} className="hidden sm:block">
-            <ul className="flex items-center gap-1">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="rounded px-2 py-2 text-muted transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <button
-            type="button"
-            onClick={onToggleLocale}
-            className="ml-2 min-h-8 min-w-10 rounded border border-border px-2 font-mono text-xs transition-colors hover:border-accent hover:text-accent"
-          >
-            {dict.nav.switchLabel}
-            {/* Keeps the visible label in the accessible name (WCAG 2.5.3). */}
-            <span className="sr-only" lang={dict.locale === "en" ? "pt-BR" : "en"}>
-              {` · ${dict.nav.switchLang}`}
-            </span>
-          </button>
-        </div>
-      </div>
-    </header>
   );
 }
 
@@ -292,28 +247,14 @@ function Contact({ dict }: { dict: Dictionary }) {
 
 export function HomePage({ dict, onToggleLocale }: { dict: Dictionary; onToggleLocale: () => void }) {
   return (
-    <>
-      <a
-        href="#content"
-        className="sr-only z-20 rounded bg-foreground px-4 py-2 text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-      >
-        {dict.nav.skipToContent}
-      </a>
-      <Header dict={dict} onToggleLocale={onToggleLocale} />
-      <main id="content" className="mx-auto max-w-4xl px-4 sm:px-6">
-        <div id="top" />
-        <Hero dict={dict} />
-        <Metrics dict={dict} />
-        <Work dict={dict} />
-        <Projects dict={dict} />
-        <Experience dict={dict} />
-        <Contact dict={dict} />
-      </main>
-      <footer className="border-t border-border">
-        <p className="mx-auto max-w-4xl px-4 py-8 text-sm text-muted sm:px-6">
-          Leonardo Delmiro · {dict.footer}
-        </p>
-      </footer>
-    </>
+    <SiteShell dict={dict} onToggleLocale={onToggleLocale} isHome>
+      <div id="top" />
+      <Hero dict={dict} />
+      <Metrics dict={dict} />
+      <Work dict={dict} />
+      <Projects dict={dict} />
+      <Experience dict={dict} />
+      <Contact dict={dict} />
+    </SiteShell>
   );
 }

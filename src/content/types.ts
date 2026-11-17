@@ -35,6 +35,7 @@ export type Dictionary = {
     projects: string;
     experience: string;
     contact: string;
+    blog: string;
     switchLabel: string;
     switchLang: string;
   };
@@ -82,6 +83,15 @@ export type Dictionary = {
     heading: string;
     text: string;
     email: string;
+  };
+  blog: {
+    title: string;
+    heading: string;
+    intro: string;
+    empty: string;
+    backLabel: string;
+    /** Shown on a post that has no version in the reader's language. */
+    onlyInOtherLanguage: string;
   };
   footer: string;
 };
